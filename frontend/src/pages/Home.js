@@ -27,6 +27,26 @@ const Home = () => {
         <section className="py-8 bg-gray-100">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold text-center mb-6">Explore Services</h2>
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              <div className="text-center">
+                <p className="mb-4 font-medium text-lg">Are you a freelancer?</p>
+                <button
+                  className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+                  onClick={() => window.location.href = '/look-for-projects'}
+                >
+                  Look for Projects
+                </button>
+              </div>
+              <div className="text-center">
+                <p className="mb-4 font-medium text-lg">Need a freelancer?</p>
+                <button
+                  className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700"
+                  onClick={() => window.location.href = '/post-a-project'}
+                >
+                  Post a Project
+                </button>
+              </div>
+            </div>
             <FilterSort items={services} />
           </div>
         </section>
