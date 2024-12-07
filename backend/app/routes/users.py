@@ -9,9 +9,11 @@ def register():
     data = request.get_json()
     hashed_password = generate_password_hash(data['password'], method='sha256')
     new_user = User(name=data['name'], email=data['email'], password_hash=hashed_password)
-    
-    db.session.add(new_user)
-    db.session.commit()
-    
-    return jsonify({"message": "User registered successfully!"})
+   
+    try:
+    	db.session.add(new_user)
+    	db.session.commit()  
+    	return jsonify({"message": "User registered successfully!"}), 201
+    except Exception as e:
+	return jsonify({"error": str(e)}), 400
 
